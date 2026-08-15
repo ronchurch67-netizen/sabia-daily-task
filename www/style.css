@@ -5,6 +5,22 @@
   padding: 0;
 }
 
+/* ===== Palèt koulè vif ===== */
+:root {
+  --purple: #7c3aed;
+  --purple-dark: #6d28d9;
+  --pink: #ec4899;
+  --pink-dark: #db2777;
+  --orange: #f97316;
+  --orange-dark: #ea580c;
+  --teal: #0d9488;
+  --teal-dark: #0b7c71;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --red: #ef4444;
+  --red-dark: #dc2626;
+}
+
 body {
   position: relative;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -60,7 +76,8 @@ h1 {
 /* ===== Òlòj an dirèk ===== */
 .live-clock {
   text-align: center;
-  color: #6a5cff;
+  color: var(--teal);
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   font-family: "Consolas", "Segoe UI", monospace;
   font-size: 1rem;
@@ -80,37 +97,37 @@ h1 {
 .voice-lang {
   padding: 8px 14px;
   border: none;
-  background: #ffffff;
-  color: #555;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #ffffff;
+  font-weight: 600;
   border-radius: 20px;
   font-size: 0.85rem;
   cursor: pointer;
-  box-shadow: 0 3px 8px rgba(106, 92, 255, 0.18);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
   transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .voice-lang:hover {
   transform: translateY(-1px);
-  box-shadow: 0 5px 12px rgba(106, 92, 255, 0.25);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.45);
 }
 
 .notify-btn {
   padding: 8px 16px;
   border: none;
-  background: #ffffff;
-  color: #555;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  color: #ffffff;
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 3px 8px rgba(106, 92, 255, 0.18);
+  box-shadow: 0 4px 10px rgba(249, 115, 22, 0.35);
   transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
 }
 
 .notify-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 5px 12px rgba(106, 92, 255, 0.25);
-  background: #f6f4ff;
+  box-shadow: 0 6px 14px rgba(249, 115, 22, 0.45);
 }
 
 .notify-btn:active {
@@ -147,7 +164,7 @@ h1 {
 }
 
 #task-input:focus {
-  border-color: #6a5cff;
+  border-color: var(--blue);
 }
 
 #task-day,
@@ -167,7 +184,7 @@ h1 {
 
 #task-day:focus,
 #task-time:focus {
-  border-color: #6a5cff;
+  border-color: var(--blue);
 }
 
 .mic-btn {
@@ -177,18 +194,18 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ffffff, #f1f1f5);
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
   border: none;
   border-radius: 50%;
   font-size: 1.2rem;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(106, 92, 255, 0.22);
+  box-shadow: 0 4px 10px rgba(219, 39, 119, 0.4);
   transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
 }
 
 .mic-btn:hover {
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 6px 14px rgba(106, 92, 255, 0.3);
+  box-shadow: 0 6px 14px rgba(219, 39, 119, 0.5);
 }
 
 .mic-btn:active {
@@ -196,27 +213,27 @@ h1 {
 }
 
 .mic-btn.listening {
-  background: linear-gradient(135deg, #ff7c7c, #ff5c5c);
+  background: linear-gradient(135deg, #ff7c7c, var(--red));
   animation: pulse 1s infinite;
 }
 
 .task-form button[type="submit"] {
   padding: 12px 18px;
-  background: linear-gradient(135deg, #6a5cff, #7c6bff);
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
   color: white;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(106, 92, 255, 0.35);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
   transition: background 0.2s, transform 0.12s, box-shadow 0.15s;
 }
 
 .task-form button[type="submit"]:hover {
-  background: linear-gradient(135deg, #5d4fe6, #6a5cff);
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple));
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(106, 92, 255, 0.4);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.5);
 }
 
 .task-form button[type="submit"]:active {
@@ -249,9 +266,9 @@ h1 {
 }
 
 .filter-btn.active {
-  background: linear-gradient(135deg, #6a5cff, #7c6bff);
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
   color: white;
-  box-shadow: 0 4px 10px rgba(106, 92, 255, 0.35);
+  box-shadow: 0 4px 10px rgba(13, 148, 136, 0.4);
 }
 
 /* ===== Semèn nan, seksyon pa jou ===== */
@@ -276,8 +293,8 @@ h1 {
 }
 
 .day-section.today .day-header {
-  color: #6a5cff;
-  border-bottom-color: #6a5cff;
+  color: var(--orange-dark);
+  border-bottom-color: var(--orange);
 }
 
 .task-list {
@@ -333,22 +350,22 @@ h1 {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: #6a5cff;
+  accent-color: var(--teal);
   flex-shrink: 0;
 }
 
 .task-time {
   font-size: 0.8rem;
-  color: #888;
-  background: #eeeef7;
-  padding: 3px 8px;
+  color: #ffffff;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  padding: 3px 9px;
   border-radius: 12px;
   white-space: nowrap;
 }
 
 .task-time.overdue {
-  color: #d63333;
-  background: #ffe6e6;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
 }
 
 .delete-btn {
@@ -358,21 +375,20 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
   border: none;
-  color: #ff5c5c;
+  color: #ffffff;
   font-size: 1rem;
   cursor: pointer;
   line-height: 1;
   border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(255, 92, 92, 0.25);
+  box-shadow: 0 3px 8px rgba(220, 38, 38, 0.4);
   transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
 }
 
 .delete-btn:hover {
-  background: #ffe6e6;
   transform: scale(1.08);
-  box-shadow: 0 3px 8px rgba(255, 92, 92, 0.35);
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.5);
 }
 
 .delete-btn:active {
@@ -452,7 +468,7 @@ h1 {
 #report-close-btn {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #6a5cff, #7c6bff);
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
   color: white;
   border: none;
   border-radius: 10px;
@@ -460,14 +476,14 @@ h1 {
   font-weight: 600;
   cursor: pointer;
   margin-top: 6px;
-  box-shadow: 0 4px 12px rgba(106, 92, 255, 0.35);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
   transition: transform 0.12s, box-shadow 0.15s, background 0.2s;
 }
 
 #report-close-btn:hover {
-  background: linear-gradient(135deg, #5d4fe6, #6a5cff);
+  background: linear-gradient(135deg, var(--purple-dark), var(--purple));
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(106, 92, 255, 0.4);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.5);
 }
 
 #report-close-btn:active {

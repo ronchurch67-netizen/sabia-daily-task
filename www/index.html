@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Tach Mwen</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#6a5cff" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Tach Mwen" />
+  <link rel="apple-touch-icon" href="img/icon-192.png" />
+  <link rel="icon" href="img/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <h1 id="app-title">Tach Mwen</h1>
+
+    <div id="live-clock" class="live-clock"></div>
+
+    <div class="header-actions">
+      <button type="button" id="notify-btn" class="notify-btn">🔔 Aktive rapèl</button>
+      <select id="app-lang" class="voice-lang" title="Lang pou app la ak rekonesans vwa a">
+        <option value="ht-HT">🌐 Kreyòl ayisyen</option>
+        <option value="fr-FR">🌐 Français</option>
+        <option value="en-US">🌐 English</option>
+        <option value="es-ES">🌐 Español</option>
+        <option value="pt-BR">🌐 Português</option>
+      </select>
+    </div>
+
+    <!-- Fòm pou ajoute yon task -->
+    <form id="task-form" class="task-form">
+      <div class="input-row">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Ekri tach ou yo (separe ak , si gen plizyè)"
+          autocomplete="off"
+        />
+        <button type="button" id="mic-btn" class="mic-btn" title="Pale pou ekri tach la">🎤</button>
+      </div>
+      <div class="input-row">
+        <select id="task-day" title="Ki jou">
+          <option value="0">Lendi</option>
+          <option value="1">Madi</option>
+          <option value="2">Mèkredi</option>
+          <option value="3">Jedi</option>
+          <option value="4">Vandredi</option>
+          <option value="5">Samdi</option>
+          <option value="6">Dimanch</option>
+        </select>
+        <input type="time" id="task-time" title="Ki lè" />
+        <button type="submit">Ajoute</button>
+      </div>
+    </form>
+
+    <!-- Bouton filtè yo: All / Active / Completed -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+
+    <!-- Semèn nan, yon seksyon pou chak jou -->
+    <div id="week-view" class="week-view"></div>
+
+    <!-- Kantite tasks ki poko fini -->
+    <p id="task-count" class="task-count">0 tach ki rete</p>
+  </div>
+
+  <!-- Modal rapò semèn nan -->
+  <div id="report-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="report-title">Rapò Semèn nan</h2>
+      <div id="report-body"></div>
+      <button type="button" id="report-close-btn">Replanifye</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

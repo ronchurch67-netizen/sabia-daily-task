@@ -1,0 +1,472 @@
+/* ===== Reset debaz ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #6a5cff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+  overflow-x: hidden;
+}
+
+/* Imaj background la, klè san flou */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("img/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+/* Yon ti kouch koulè app la pa dèsi imaj la pou yo fonn ansanm */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(106, 92, 255, 0.4), rgba(143, 107, 255, 0.3));
+  z-index: -1;
+}
+
+/* ===== Kad prensipal aplikasyon an ===== */
+.app {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+}
+
+/* ===== Òlòj an dirèk ===== */
+.live-clock {
+  text-align: center;
+  color: #6a5cff;
+  font-variant-numeric: tabular-nums;
+  font-family: "Consolas", "Segoe UI", monospace;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 14px;
+}
+
+/* ===== Aksyon anlè (rapèl) ===== */
+.header-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.voice-lang {
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  background: #f8f8fc;
+  color: #555;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.notify-btn {
+  padding: 8px 14px;
+  border: 2px solid #e0e0e0;
+  background: #f8f8fc;
+  color: #555;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.notify-btn:hover {
+  background: #eeeef7;
+}
+
+.notify-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== Fòm pou ajoute task ===== */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#task-input:focus {
+  border-color: #6a5cff;
+}
+
+#task-day,
+#task-time {
+  padding: 12px 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  outline: none;
+  color: #555;
+  transition: border-color 0.2s;
+}
+
+#task-day {
+  flex: 1;
+}
+
+#task-day:focus,
+#task-time:focus {
+  border-color: #6a5cff;
+}
+
+.mic-btn {
+  padding: 10px 14px;
+  background: #f1f1f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.mic-btn:hover {
+  background: #e4e4ee;
+}
+
+.mic-btn.listening {
+  background: #ff5c5c;
+  border-color: #ff5c5c;
+  animation: pulse 1s infinite;
+}
+
+.task-form button[type="submit"] {
+  padding: 12px 18px;
+  background: #6a5cff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.task-form button[type="submit"]:hover {
+  background: #5747e0;
+}
+
+.task-form button[type="submit"]:active {
+  transform: scale(0.96);
+}
+
+/* ===== Filtè yo (All / Active / Completed) ===== */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: none;
+  background: #f1f1f5;
+  color: #555;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-btn:hover {
+  background: #e4e4ee;
+}
+
+.filter-btn.active {
+  background: #6a5cff;
+  color: white;
+}
+
+/* ===== Semèn nan, seksyon pa jou ===== */
+.week-view {
+  max-height: 480px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.day-section {
+  margin-bottom: 18px;
+}
+
+.day-header {
+  font-size: 0.95rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #f1f1f5;
+}
+
+.day-section.today .day-header {
+  color: #6a5cff;
+  border-bottom-color: #6a5cff;
+}
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.empty-day {
+  color: #bbb;
+  font-size: 0.85rem;
+  font-style: italic;
+  padding: 4px 2px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8f8fc;
+  padding: 12px 14px;
+  border-radius: 10px;
+  animation: slideIn 0.25s ease;
+}
+
+.task-item.overdue-item {
+  background: #fff3f3;
+}
+
+.task-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.task-item .task-text {
+  word-break: break-word;
+  color: #333;
+  font-size: 0.98rem;
+}
+
+/* Lè yon task fini, li gen yon liy sou tèks la */
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.task-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #6a5cff;
+  flex-shrink: 0;
+}
+
+.task-time {
+  font-size: 0.8rem;
+  color: #888;
+  background: #eeeef7;
+  padding: 3px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.task-time.overdue {
+  color: #d63333;
+  background: #ffe6e6;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff5c5c;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  background: #ffe6e6;
+}
+
+/* Ti animasyon lè yon task fini (yon "pop") */
+.task-item.completed {
+  animation: pop 0.25s ease;
+}
+
+/* ===== Kantite tasks ki rete ===== */
+.task-count {
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* ===== Modal rapò semèn nan ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 10;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 420px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  color: #333;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.modal-content p {
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.report-list {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.report-list li {
+  background: #f8f8fc;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 0.92rem;
+}
+
+.report-day {
+  color: #999;
+  font-size: 0.82rem;
+}
+
+#report-close-btn {
+  width: 100%;
+  padding: 12px;
+  background: #6a5cff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+#report-close-btn:hover {
+  background: #5747e0;
+}
+
+/* ===== Animasyon yo ===== */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 92, 92, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 92, 92, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 92, 92, 0);
+  }
+}
+
+/* ===== Responsive: pou telefòn ===== */
+@media (max-width: 480px) {
+  .app {
+    padding: 20px 16px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .task-form button[type="submit"] {
+    padding: 12px 14px;
+  }
+}

@@ -57,8 +57,8 @@ body::after {
 
 /* ===== Kad prensipal aplikasyon an ===== */
 .app {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(243, 240, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   width: 100%;
   max-width: 520px;
   border-radius: 16px;
@@ -315,7 +315,7 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #f8f8fc;
+  background: #ffffff;
   padding: 12px 14px;
   border-radius: 10px;
   animation: slideIn 0.25s ease;
@@ -424,7 +424,7 @@ h1 {
 }
 
 .modal-content {
-  background: white;
+  background: #f3f0ff;
   border-radius: 16px;
   padding: 24px;
   max-width: 420px;
@@ -452,7 +452,7 @@ h1 {
 }
 
 .report-list li {
-  background: #f8f8fc;
+  background: #ffffff;
   padding: 8px 12px;
   border-radius: 8px;
   margin-bottom: 6px;

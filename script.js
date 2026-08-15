@@ -464,9 +464,9 @@ function updateNotifyBtnLabel() {
   notifyBtn.textContent = Notification.permission === "granted" ? t.notifyOn : t.notifyOff;
 }
 
-// Jwe yon ti son (bip) lè yon rapèl deklanche
+// Jwe yon sèl "bip" (de ti son youn apre lòt)
 let audioCtx = null;
-function playReminderSound() {
+function playBeep() {
   try {
     if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     if (audioCtx.state === "suspended") audioCtx.resume();
@@ -490,6 +490,19 @@ function playReminderSound() {
     });
   } catch (e) {
     // Aparèy la pa sipòte son — pa gen anyen nou ka fè
+  }
+}
+
+// Rapèl konplè: bipe AK vibre, 3 fwa youn apre lòt
+function playReminderAlert() {
+  const repeatCount = 3;
+  const gapMs = 550;
+
+  for (let i = 0; i < repeatCount; i++) {
+    setTimeout(() => {
+      playBeep();
+      if (navigator.vibrate) navigator.vibrate(300);
+    }, i * gapMs);
   }
 }
 
@@ -520,7 +533,7 @@ function checkReminders() {
       task.remindedDate !== todayStr
     ) {
       new Notification(t.reminderNotifTitle, { body: task.text });
-      playReminderSound();
+      playReminderAlert();
       task.remindedDate = todayStr;
       changed = true;
     }

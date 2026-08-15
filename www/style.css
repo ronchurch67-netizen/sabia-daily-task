@@ -17,13 +17,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Imaj background la, klè san flou */
+/* Imaj background la, klè san flou, san koupe (tout tèks/lèt yo parèt antye) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
+  background-color: #ece7fb;
   background-image: url("img/background.png");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   z-index: -2;

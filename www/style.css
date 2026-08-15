@@ -78,33 +78,49 @@ h1 {
 }
 
 .voice-lang {
-  padding: 8px 12px;
-  border: 2px solid #e0e0e0;
-  background: #f8f8fc;
+  padding: 8px 14px;
+  border: none;
+  background: #ffffff;
   color: #555;
   border-radius: 20px;
   font-size: 0.85rem;
   cursor: pointer;
+  box-shadow: 0 3px 8px rgba(106, 92, 255, 0.18);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.voice-lang:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(106, 92, 255, 0.25);
 }
 
 .notify-btn {
-  padding: 8px 14px;
-  border: 2px solid #e0e0e0;
-  background: #f8f8fc;
+  padding: 8px 16px;
+  border: none;
+  background: #ffffff;
   color: #555;
   border-radius: 20px;
   font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  box-shadow: 0 3px 8px rgba(106, 92, 255, 0.18);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
 }
 
 .notify-btn:hover {
-  background: #eeeef7;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(106, 92, 255, 0.25);
+  background: #f6f4ff;
+}
+
+.notify-btn:active {
+  transform: translateY(0) scale(0.96);
 }
 
 .notify-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
 }
 
 /* ===== Fòm pou ajoute task ===== */
@@ -155,38 +171,52 @@ h1 {
 }
 
 .mic-btn {
-  padding: 10px 14px;
-  background: #f1f1f5;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  font-size: 1.1rem;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffffff, #f1f1f5);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 10px rgba(106, 92, 255, 0.22);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
 }
 
 .mic-btn:hover {
-  background: #e4e4ee;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 14px rgba(106, 92, 255, 0.3);
+}
+
+.mic-btn:active {
+  transform: scale(0.95);
 }
 
 .mic-btn.listening {
-  background: #ff5c5c;
-  border-color: #ff5c5c;
+  background: linear-gradient(135deg, #ff7c7c, #ff5c5c);
   animation: pulse 1s infinite;
 }
 
 .task-form button[type="submit"] {
   padding: 12px 18px;
-  background: #6a5cff;
+  background: linear-gradient(135deg, #6a5cff, #7c6bff);
   color: white;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(106, 92, 255, 0.35);
+  transition: background 0.2s, transform 0.12s, box-shadow 0.15s;
 }
 
 .task-form button[type="submit"]:hover {
-  background: #5747e0;
+  background: linear-gradient(135deg, #5d4fe6, #6a5cff);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(106, 92, 255, 0.4);
 }
 
 .task-form button[type="submit"]:active {
@@ -209,16 +239,19 @@ h1 {
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.9rem;
-  transition: background 0.2s, color 0.2s;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.15s;
 }
 
 .filter-btn:hover {
   background: #e4e4ee;
+  transform: translateY(-1px);
 }
 
 .filter-btn.active {
-  background: #6a5cff;
+  background: linear-gradient(135deg, #6a5cff, #7c6bff);
   color: white;
+  box-shadow: 0 4px 10px rgba(106, 92, 255, 0.35);
 }
 
 /* ===== Semèn nan, seksyon pa jou ===== */
@@ -319,20 +352,31 @@ h1 {
 }
 
 .delete-btn {
-  background: none;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
   border: none;
   color: #ff5c5c;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: pointer;
   line-height: 1;
-  padding: 4px 6px;
-  border-radius: 6px;
-  transition: background 0.15s;
-  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(255, 92, 92, 0.25);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
 }
 
 .delete-btn:hover {
   background: #ffe6e6;
+  transform: scale(1.08);
+  box-shadow: 0 3px 8px rgba(255, 92, 92, 0.35);
+}
+
+.delete-btn:active {
+  transform: scale(0.92);
 }
 
 /* Ti animasyon lè yon task fini (yon "pop") */
@@ -408,17 +452,26 @@ h1 {
 #report-close-btn {
   width: 100%;
   padding: 12px;
-  background: #6a5cff;
+  background: linear-gradient(135deg, #6a5cff, #7c6bff);
   color: white;
   border: none;
   border-radius: 10px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   margin-top: 6px;
+  box-shadow: 0 4px 12px rgba(106, 92, 255, 0.35);
+  transition: transform 0.12s, box-shadow 0.15s, background 0.2s;
 }
 
 #report-close-btn:hover {
-  background: #5747e0;
+  background: linear-gradient(135deg, #5d4fe6, #6a5cff);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(106, 92, 255, 0.4);
+}
+
+#report-close-btn:active {
+  transform: scale(0.97);
 }
 
 /* ===== Animasyon yo ===== */

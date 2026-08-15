@@ -1,6 +1,6 @@
 {
-  "name": "Tach Mwen",
-  "short_name": "Tach Mwen",
+  "name": "Sabia Tach Mwen",
+  "short_name": "Sabia",
   "description": "Planifikatè tach chak jou nan semèn nan, ak vwa, rapèl, ak rapò chak semèn.",
   "start_url": "./index.html",
   "scope": "./",

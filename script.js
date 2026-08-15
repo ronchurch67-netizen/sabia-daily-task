@@ -201,8 +201,8 @@ function applyLanguage(langCode) {
   localStorage.setItem("appLang", currentLangCode);
 
   document.documentElement.lang = currentLangCode.split("-")[0];
-  document.title = t.appTitle;
-  appTitleEl.textContent = t.appTitle;
+  document.title = `Sabia ${t.appTitle}`;
+  appTitleEl.textContent = `Sabia ${t.appTitle}`;
 
   taskInput.placeholder = t.inputPlaceholder;
   micBtn.title = t.micTitle;

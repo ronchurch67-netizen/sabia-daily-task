@@ -1,4 +1,4 @@
-const CACHE_NAME = "tach-mwen-v1";
+const CACHE_NAME = "tach-mwen-v2";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -7,7 +7,7 @@ const ASSETS_TO_CACHE = [
   "./manifest.json",
   "./img/icon-192.png",
   "./img/icon-512.png",
-  "./img/background.png",
+  "./img/background.png?v=2",
 ];
 
 self.addEventListener("install", (event) => {

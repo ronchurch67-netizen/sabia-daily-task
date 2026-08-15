@@ -23,7 +23,7 @@ body::before {
   position: fixed;
   inset: 0;
   background-color: #ece7fb;
-  background-image: url("img/background.png");
+  background-image: url("img/background.png?v=2");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
